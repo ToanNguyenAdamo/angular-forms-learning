@@ -1,0 +1,138 @@
+<form
+  class="example-form"
+  novalidate
+  #myForm
+  #form="ngForm"
+  (ngSubmit)="onSubmit(form)"
+>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>FullName</mat-label>
+    <input
+      matInput
+      placeholder="Enter your full name"
+      name="fullName"
+      ngModel
+      required 
+    />
+    <mat-error *ngIf="form.controls.fullName?.hasError('required')"
+      >This field is required</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Phone</mat-label>
+    <input
+      matInput
+      placeholder="Phone number"
+      type="text"
+      name="phone"
+      #phone="ngModel"
+      pattern="^[0-9]*$" 
+      [ngModel]="data.phone"
+      ngModel
+    />
+    <mat-error *ngIf="phone.hasError('pattern')"
+      >Phone is only accept number</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      placeholder="Your email"
+      type="email"
+      required
+      name="email"
+      ngModel
+    />
+    <mat-error *ngIf="form.controls.email?.hasError('required')"
+      >This field is required</mat-error
+    >
+  </mat-form-field>
+  <div ngModelGroup="passwords" #passwords="ngModelGroup" passwordMatch  [mustMatch]="['password', 'rePassword']">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        placeholder="Enter your Password"
+        name="password"
+        #password="ngModel"
+        minlength="6"
+        required
+        ngModel
+      />
+      <mat-error
+        *ngIf="password.hasError('required')"
+        >This field is required</mat-error
+      >
+      <mat-error
+        *ngIf="password?.hasError('minlength')"
+        >Password must more than 6 characters</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Re-type Password</mat-label>
+      <input
+        matInput
+        placeholder="Re-type your Password"
+        name="rePassword"
+        #rePassword="ngModel"
+        ngModel
+      />
+      <mat-error
+        *ngIf="
+        rePassword.hasError('confirmPasswordValidator')
+        "
+        >Password doesn't match</mat-error
+      >
+    </mat-form-field>
+  </div>
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Choose one</mat-label>
+    <mat-select formControlName="selected">
+      <mat-option>Clear</mat-option>
+      <mat-option value="valid">Valid option</mat-option>
+      <mat-option value="invalid">Invalid option</mat-option>
+    </mat-select>
+    <mat-error *ngIf="tpdForm.controls.selected.hasError('required')"
+      >You must make a selection</mat-error
+    >
+    <mat-error
+      *ngIf="
+        tpdForm.controls.selected.hasError('pattern') &&
+        !tpdForm.controls.selected.hasError('required')
+      "
+    >
+      Your selection is invalid
+    </mat-error>
+  </mat-form-field>
+  <div class="example-full-width" appearance="fill">
+    <mat-label>Account Type</mat-label>
+    <br />
+    <br />
+    <mat-radio-group aria-label="Select an option" formControlName="radio">
+      <mat-radio-button value="1">Option 1</mat-radio-button>
+      <mat-radio-button value="2">Option 2</mat-radio-button>
+    </mat-radio-group>
+    <mat-error
+      *ngIf="
+        tpdForm.controls.radio.hasError('required') &&
+        (tpdForm.controls.radio.touched || submitted)
+      "
+      >You must make a selection</mat-error
+    >
+  </div> -->
+
+  <br />
+  <br />
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+  <button
+    mat-raised-button
+    color="secondary"
+    type="button"
+    (click)="resetForm()"
+  >
+    Reset
+  </button>
+</form>
+
+<!-- {{tpdForm | json}} -->

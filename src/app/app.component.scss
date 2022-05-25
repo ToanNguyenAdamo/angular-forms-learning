@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    .form{
+        width: 300px;
+        min-height: 500px;
+        margin: 16px;
+        padding: 16px;
+    }
+}
