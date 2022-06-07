@@ -1,0 +1,23 @@
+.container {
+  padding: 40px 40px 0px 40px;
+  .first, .second {
+    width: 200px;
+    .content {
+      padding: 16px;
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: 16px;
+      background: #76b2f3;
+      color: #ffffff;
+    }
+  }
+
+  .btn{
+    min-width: 100px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: #005abc;
+    color: #ffffff;
+    padding: 4px
+  }
+}

@@ -1,0 +1,39 @@
+<div class="container">
+  <!--  -->
+  <h3>Custom if;else directive</h3>
+  <div class="first">
+    <div class="btn" (click)="firstState = !firstState">
+      change state: {{ firstState }}
+    </div>
+    <br />
+    <div *myIf="firstState; else1: elseTemplate">
+      This content will display if state is truthy
+    </div>
+    <ng-template #elseTemplate>
+      <div>This content will display if state is falsy</div>
+    </ng-template>
+    <br />
+    <br />
+  </div>
+  <!--  -->
+  <h3>Custom for directive</h3>
+  <div class="second">
+    <div class="btn" (click)="firstState = !firstState">
+      change state: {{ firstState }}
+    </div>
+    <br />
+    <div *myFor="let item of forArray; count: 1; let index=index1">{{ index }}, {{ item.title }}</div>
+    <ng-template myFor let-item [myForOf]="forArray">
+      <div>{{ item.title }}</div>
+    </ng-template>
+    <br />
+    <br />
+  </div>
+  <!--  -->
+  <h3>Hide after directive</h3>
+  <div class="first">
+    <div class="content" *hideAfter="2000">This content will be hidden after 5 seconds</div>
+    <br />
+    <br />
+  </div>
+</div>
